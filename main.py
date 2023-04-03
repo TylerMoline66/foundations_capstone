@@ -2,7 +2,7 @@ import os
 import functions
 
 
-print('\n\nHello! Welcome to Devpipline\'s online services, enter your credentials below to get started!')
+# print('\n\nHello! Welcome to Devpipline\'s online services, enter your credentials below to get started!')
 
 while True:
   try_login = functions.login.login()
@@ -13,7 +13,10 @@ while True:
   
 os.system('clear')
 
-if try_login[8] == 0:
+if try_login == "QUIT":
+   print("\nThanks for using this program, see you again soon!\n")
+   pass
+elif try_login[8] == 0:
    print(f"Welcome {try_login[1]} {try_login[2]}, what would you like to do?")
 
    options = ['View or search records', 'Add to company records', 'Edit existing company records','Delete company records', 'Log out']
@@ -105,7 +108,7 @@ if try_login[8] == 0:
 
 else:
 
-   options = ['Change email', 'Change password', 'View Competencies?', 'Log out']
+   options = ['Change email', 'Change password', 'View Competencies', 'Log out']
 
    while True:
       # os.system('clear')
@@ -116,10 +119,12 @@ else:
       print('\n---------------------------\n')
       
       user_input = input('What would you like to do? ')
+
       if user_input.isnumeric() == False:
-        print("Please input a number")
+        print(f"\n{user_input} is not a valid input, please try again\n")
         continue
       print()
+
 
       if int(user_input) > len(options) or user_input.isdigit() == False:
          print('Please input a valid option\n')
@@ -128,11 +133,13 @@ else:
       elif user_input == '2':
          new_password = functions.user_password_update.update_password(try_login)
       elif user_input == '3':
-         pass
+         view = functions.user_view_comp_results.view_comp_results(try_login)
       else:
          log_out = input('Would you like to log out? (Y or N): ').lower()
          if log_out == 'y':
-            print('\nSuccessfully logged out, see you next time!\n')
-            break
+            
+            if functions.login.login() == 'QUIT':
+              break
+
          else:
             continue

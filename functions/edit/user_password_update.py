@@ -1,6 +1,7 @@
 import sys
 sys.path.append('.')
 from db_querys import user_update_password
+from functions import enter_to_menu
 
 def update_password(value):
 
@@ -12,5 +13,6 @@ def update_password(value):
         new_password = input("Please input your password: ")
         user_update_password.edit_user_password(new_password, value[0])
         print(f"{value[5]} was updated to {new_password}")
+        enter_to_menu.enter_to_menu()
     else:
         return

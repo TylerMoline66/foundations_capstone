@@ -11,7 +11,9 @@ Hello! This application is meant to give the managers access to their employees 
 ## User
 
 Login in using your username and password like so:
+
 ---> login: email@email.com
+
 ---> password: xyz123
 
 You will then be in the program logged in as the user. There will be a menu for the user to access the information about that specific user. you can:
@@ -26,7 +28,9 @@ After using any of those menu options you will return to the menu above, and onc
 ## Managers
 
 Signing in as a manager is the same as a user:
+
 ---> login: email@email.com
+
 ---> password: xyz123
 
 You will then be in the program logged in as a manager. This menu is larger and has some sub menus. it will look have the options mentioned below:

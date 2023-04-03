@@ -1,2 +1,3 @@
 from db_querys import login_query
 from db_querys.edit import user_edit_email, user_update_password
+from db_querys.view_search import user_view_comp_results_query
