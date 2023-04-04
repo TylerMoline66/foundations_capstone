@@ -36,26 +36,47 @@ Signing in as a manager is the same as a user:
 You will then be in the program logged in as a manager. This menu is larger and has some sub menus. it will look have the options mentioned below:
 
 1. View or search options
+
    -View all users in a list
+
    -Search for user by first or last name
+
    -View a report of all users and their competency levels for a given competency
+
    -View a list of assessments for a given user
+
    -Quit
+
 2. Add options
+
    -Add a user
+
    -Add a new competency
+
    -Add a new assessment to a competency
+
    -Add an assessment result for a user for an assessment (this is like recording test results for a user)
+
    -Quit
+
 3. Edit options
+
    -Edit a user's information
+
    -Edit a competency
+
    -Edit an assessment
+
    -Edit an assessment result
+
    -Quit
+
 4. Delete options
+
    -Delete an assessment result
+
    -Quit
+
 5. logout
 
 After using any of those menu options you will return to the menu above, and once you have completed the tasks you would like you can logout.
