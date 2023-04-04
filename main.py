@@ -7,8 +7,6 @@ while True:
   break_out = False
   try_login = functions.login.login()
 
-  
-  # os.system('clear')
   while True:
     
     if try_login == False :
