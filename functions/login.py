@@ -1,17 +1,17 @@
-# import bcrypt
+import bcrypt
 import sys
 sys.path.append('.')
 from db_querys import login_query
 import os
 
 def login():
+    os.system('clear')
     while True:
-        os.system('clear')
+        
         login = input("\nWould you like to login, or quit?(L or Q): ").lower()
 
         if login != 'l' and login != 'q':
             print('Im sorry I dont understand, do you want to [L]ogin or [Q]uit? ')
-
 
         elif login == 'l':
             print('\n\nHello! Welcome to Devpipline\'s online services, enter your credentials below to get started!')
@@ -25,24 +25,27 @@ def login():
 
             login_results = login_query.find_one(pass_in)
 
+            if login_results == []:
+                print("Incorrect email")
+                go_back = input('\nWould you like to try another email? (Y or N): ').lower()
+                if go_back == 'y':
+                    continue
+                else: 
+                    return False
 
+            password = password.encode('utf-8')
 
-            # -----------------THIS IS ALL BCRYPT STUFF--------------
-            # password = password.encode('utf-8')
-            # my_hashed = login_results[0][5].encode('utf-8')
-            
-            # salt = bcrypt.gensalt()
-            # hashed = bcrypt.hashpw(password, salt)
-            # hashed1 = bcrypt.hashpw(my_hashed, salt)
-
-            # print(hashed1)
-            # print(hashed)
-
-            # if bcrypt.checkpw(hashed, hashed1):
-            #     return print([login_results[0][0], login_results[0][1], login_results[0][2], login_results[0][3], login_results[0][4], login_results[0][5], login_results[0][6], login_results[0][7], login_results[0][8], login_results[0][9]])
-            # else: 
-            #     return print(False)
-
+            if bcrypt.checkpw(password, login_results[0][5]):
+                
+                return [login_results[0][0], login_results[0][1], login_results[0][2], login_results[0][3], login_results[0][4], login_results[0][5], login_results[0][6], login_results[0][7], login_results[0][8], login_results[0][9]]
+            else: 
+                incorrect = input("Im sorry that password is incorrect, would you like to try again? (Y or N): ").lower()
+                if incorrect == 'y':
+                    continue
+                elif incorrect == "n":
+                    return False
+                else:
+                    pass
 
             if password == login_results[0][5]:
                 return [login_results[0][0], login_results[0][1], login_results[0][2], login_results[0][3], login_results[0][4], login_results[0][5], login_results[0][6], login_results[0][7], login_results[0][8], login_results[0][9]]
@@ -51,8 +54,7 @@ def login():
                 return False
             
         elif login == 'q':
-            print('\nSuccessfully logged out, see you next time!\n')
-            return 'QUIT'
+            return False
 
 
       
