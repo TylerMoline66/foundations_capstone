@@ -17,7 +17,7 @@ while True:
     # ---------------This is if the user that signed in is a manager, they have the lists and options shown below---------------
     elif try_login[8] == 0:
       os.system('clear')
-      print(f"Welcome {try_login[1]} {try_login[2]}, what would you like to do?")
+      print(f"Welcome back {try_login[1]} {try_login[2]}, what would you like to do?")
 
       options = ['View or search records', 'Add to company records', 'Edit existing company records','Delete company records', "Update email", "Update password", 'Log out']
 
@@ -33,9 +33,16 @@ while True:
           user_input = input('What would you like to do? ')
           print()
 
-          
+          if user_input.isnumeric() == False:
+            print(f"\n{user_input} is not a valid input, please try again\n")
+            continue
+          print()
 
-          if user_input == '1':
+
+          if int(user_input) > len(options) or user_input.isdigit() == False:
+            print('Please input a valid option\n')
+
+          elif user_input == '1':
 
             os.system('clear')
             print(print("\nMANAGERS VIEW OR SEARCH OPTIONS\n--------------------------------\n"))
@@ -44,15 +51,20 @@ while True:
                 print(f"{i}: {val}")
             view_input = input("\nwhat would you like to do?(SELECT BY NUMBER): ")
             if view_input == '1':
-                functions.deactivate_course()
+                os.system('clear')
+                functions.view_users_in_list.view_all()
             elif view_input == '2':
-                functions.deactivate_person()
+                os.system('clear')
+                functions.search_for_users_first_or_last.search_by_name()
             elif view_input == '3':
-                functions.deactivate_cohort() 
+                os.system('clear')
+                functions.view_report_all_users_and_comp_given.search_user_and_comp()
             elif view_input == '4':
-                functions.deactivate_cohort() 
+                os.system('clear')
+                functions.view_comp_of_one_user.search_user_and_comp() 
             elif view_input == '5':
-                functions.deactivate_cohort() 
+                os.system('clear')
+                functions.view_assess_of_user.view_user_and_assess()
             else:
               continue
 

@@ -1,3 +1,3 @@
 from db_querys import login_query
 from db_querys.edit import user_edit_email, user_update_password
-from db_querys.view_search import user_view_comp_results_query
+from db_querys.view_search import user_view_comp_results_query, comp_name, search_by_first_name, search_by_last_name, view_user_and_comp_given, view_comp_of_one_user, view_assess_of_user, view_all_users

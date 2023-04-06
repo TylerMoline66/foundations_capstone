@@ -1,3 +1,3 @@
 from functions import login, enter_to_menu, hash_password
 from functions.edit import user_edit_email, user_password_update
-from functions.view_search import user_view_comp_results
+from functions.view_search import user_view_comp_results, search_for_users_first_or_last, view_report_all_users_and_comp_given, view_comp_of_one_user, view_assess_of_user, view_users_in_list

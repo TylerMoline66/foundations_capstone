@@ -47,11 +47,11 @@ def login():
                 else:
                     pass
 
-            if password == login_results[0][5]:
-                return [login_results[0][0], login_results[0][1], login_results[0][2], login_results[0][3], login_results[0][4], login_results[0][5], login_results[0][6], login_results[0][7], login_results[0][8], login_results[0][9]]
-            else:
-                print("Im sorry, that password is incorrect, please try again")
-                return False
+            # if password == login_results[0][5]:
+            #     return [login_results[0][0], login_results[0][1], login_results[0][2], login_results[0][3], login_results[0][4], login_results[0][5], login_results[0][6], login_results[0][7], login_results[0][8], login_results[0][9]]
+            # else:
+            #     print("Im sorry, that password is incorrect, please try again")
+            #     return False
             
         elif login == 'q':
             return False

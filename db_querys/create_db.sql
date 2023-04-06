@@ -12,18 +12,19 @@ active INTEGER DEFAULT 1
 );
 
 CREATE TABLE IF NOT EXISTS Competencies (
-  assess_id INTEGER PRIMARY KEY AUTOINCREMENT,
+  comp_id INTEGER PRIMARY KEY AUTOINCREMENT,
   comp_name TEXT NOT NULL, 
   date_created TEXT
 );
 
 CREATE TABLE IF NOT EXISTS Assessment (
   assess_id INTEGER PRIMARY KEY AUTOINCREMENT,
+  comp_id INTEGER,
   assessment_name TEXT,
   date_created TEXT,
 
-  FOREIGN KEY (assess_id)
-    REFERENCES Competencies (assess_id)
+  FOREIGN KEY (comp_id)
+    REFERENCES Competencies (comp_id)
 );
 
 CREATE TABLE IF NOT EXISTS Assessment_results (
@@ -145,21 +146,127 @@ insert into Users (user_id, first_name, last_name, phone, email, password, date_
 insert into Users (user_id, first_name, last_name, phone, email, password, date_created, hire_date, user_type, active) values (100, 'Mikey', 'Phant', '575-653-2659', 'mphant2r@ox.ac.uk', '5CEtWUV4t', '12/6/2022', '7/14/2019', 1, 1);
 
 
-insert into Competencies (assess_id, comp_name, date_created) values (1, 'Data Types', '4/4/2022');
-insert into Competencies (assess_id, comp_name, date_created) values (2, 'Variables', '2/16/2023');
-insert into Competencies (assess_id, comp_name, date_created) values (3, 'Functions', '7/27/2022');
-insert into Competencies (assess_id, comp_name, date_created) values (4, 'Boolean Logic', '10/20/2022');
-insert into Competencies (assess_id, comp_name, date_created) values (5, 'Conditionals', '12/18/2022');
-insert into Competencies (assess_id, comp_name, date_created) values (6, 'Loops', '11/17/2022');
-insert into Competencies (assess_id, comp_name, date_created) values (7, 'Data Structures', '12/30/2022');
-insert into Competencies (assess_id, comp_name, date_created) values (8, 'Lists', '12/5/2022');
-insert into Competencies (assess_id, comp_name, date_created) values (9, 'Dictionaries', '2/27/2023');
-insert into Competencies (assess_id, comp_name, date_created) values (10, 'Working with Files', '7/31/2022');
-insert into Competencies (assess_id, comp_name, date_created) values (11, 'Exception Handling', '4/21/2022');
-insert into Competencies (assess_id, comp_name, date_created) values (12, 'Quality Assurance (QA)', '1/30/2023');
-insert into Competencies (assess_id, comp_name, date_created) values (13, 'Object-Oriented Programming', '9/4/2022');
-insert into Competencies (assess_id, comp_name, date_created) values (14, 'Recursion', '11/4/2022');
-insert into Competencies (assess_id, comp_name, date_created) values (15, 'Databases', '10/2/2022');
+
+
+
+insert into Competencies (comp_id, comp_name, date_created) values (1, 'Data Types', '4/4/2022');
+insert into Competencies (comp_id, comp_name, date_created) values (2, 'Variables', '2/16/2023');
+insert into Competencies (comp_id, comp_name, date_created) values (3, 'Functions', '7/27/2022');
+insert into Competencies (comp_id, comp_name, date_created) values (4, 'Boolean Logic', '10/20/2022');
+insert into Competencies (comp_id, comp_name, date_created) values (5, 'Conditionals', '12/18/2022');
+insert into Competencies (comp_id, comp_name, date_created) values (6, 'Loops', '11/17/2022');
+insert into Competencies (comp_id, comp_name, date_created) values (7, 'Data Structures', '12/30/2022');
+insert into Competencies (comp_id, comp_name, date_created) values (8, 'Lists', '12/5/2022');
+insert into Competencies (comp_id, comp_name, date_created) values (9, 'Dictionaries', '2/27/2023');
+insert into Competencies (comp_id, comp_name, date_created) values (10, 'Working with Files', '7/31/2022');
+insert into Competencies (comp_id, comp_name, date_created) values (11, 'Exception Handling', '4/21/2022');
+insert into Competencies (comp_id, comp_name, date_created) values (12, 'Quality Assurance (QA)', '1/30/2023');
+insert into Competencies (comp_id, comp_name, date_created) values (13, 'Object-Oriented Programming', '9/4/2022');
+insert into Competencies (comp_id, comp_name, date_created) values (14, 'Recursion', '11/4/2022');
+insert into Competencies (comp_id, comp_name, date_created) values (15, 'Databases', '10/2/2022');
+
+
+insert into Assessment (comp_id, assessment_name, date_created) values (14, 'manager_test', '5/2/2022');
+insert into Assessment (comp_id, assessment_name, date_created) values (6, 'manager_test', '1/1/2023');
+insert into Assessment (comp_id, assessment_name, date_created) values (1, 'verbal_test', '9/10/2022');
+insert into Assessment (comp_id, assessment_name, date_created) values (2, 'verbal_test', '11/26/2022');
+insert into Assessment (comp_id, assessment_name, date_created) values (6, 'verbal_test', '4/18/2022');
+insert into Assessment (comp_id, assessment_name, date_created) values (1, 'manager_test', '4/20/2022');
+insert into Assessment (comp_id, assessment_name, date_created) values (1, 'manager_test', '1/20/2023');
+insert into Assessment (comp_id, assessment_name, date_created) values (3, 'manager_test', '10/5/2022');
+insert into Assessment (comp_id, assessment_name, date_created) values (6, 'verbal_test', '2/10/2023');
+insert into Assessment (comp_id, assessment_name, date_created) values (11, 'manager_test', '11/22/2022');
+insert into Assessment (comp_id, assessment_name, date_created) values (13, 'Self_taken_test', '2/5/2023');
+insert into Assessment (comp_id, assessment_name, date_created) values (7, 'Self_taken_test', '4/10/2022');
+insert into Assessment (comp_id, assessment_name, date_created) values (15, 'Self_taken_test', '10/9/2022');
+insert into Assessment (comp_id, assessment_name, date_created) values (9, 'manager_test', '8/10/2022');
+insert into Assessment (comp_id, assessment_name, date_created) values (8, 'Self_taken_test', '6/18/2022');
+insert into Assessment (comp_id, assessment_name, date_created) values (7, 'manager_test', '10/1/2022');
+insert into Assessment (comp_id, assessment_name, date_created) values (7, 'verbal_test', '10/2/2022');
+insert into Assessment (comp_id, assessment_name, date_created) values (13, 'Self_taken_test', '2/5/2023');
+insert into Assessment (comp_id, assessment_name, date_created) values (1, 'verbal_test', '2/6/2023');
+insert into Assessment (comp_id, assessment_name, date_created) values (3, 'verbal_test', '7/4/2022');
+insert into Assessment (comp_id, assessment_name, date_created) values (8, 'manager_test', '4/16/2022');
+insert into Assessment (comp_id, assessment_name, date_created) values (2, 'manager_test', '1/15/2023');
+insert into Assessment (comp_id, assessment_name, date_created) values (7, 'verbal_test', '5/11/2022');
+insert into Assessment (comp_id, assessment_name, date_created) values (2, 'verbal_test', '7/4/2022');
+insert into Assessment (comp_id, assessment_name, date_created) values (7, 'Self_taken_test', '6/25/2022');
+insert into Assessment (comp_id, assessment_name, date_created) values (11, 'Self_taken_test', '10/28/2022');
+insert into Assessment (comp_id, assessment_name, date_created) values (9, 'Self_taken_test', '1/7/2023');
+insert into Assessment (comp_id, assessment_name, date_created) values (9, 'manager_test', '12/25/2022');
+insert into Assessment (comp_id, assessment_name, date_created) values (13, 'verbal_test', '10/16/2022');
+insert into Assessment (comp_id, assessment_name, date_created) values (9, 'manager_test', '1/5/2023');
+insert into Assessment (comp_id, assessment_name, date_created) values (1, 'manager_test', '11/27/2022');
+insert into Assessment (comp_id, assessment_name, date_created) values (8, 'Self_taken_test', '11/7/2022');
+insert into Assessment (comp_id, assessment_name, date_created) values (5, 'Self_taken_test', '5/9/2022');
+insert into Assessment (comp_id, assessment_name, date_created) values (15, 'verbal_test', '2/12/2023');
+insert into Assessment (comp_id, assessment_name, date_created) values (14, 'manager_test', '10/10/2022');
+insert into Assessment (comp_id, assessment_name, date_created) values (7, 'verbal_test', '2/10/2023');
+insert into Assessment (comp_id, assessment_name, date_created) values (14, 'manager_test', '8/2/2022');
+insert into Assessment (comp_id, assessment_name, date_created) values (13, 'manager_test', '6/16/2022');
+insert into Assessment (comp_id, assessment_name, date_created) values (13, 'Self_taken_test', '9/12/2022');
+insert into Assessment (comp_id, assessment_name, date_created) values (2, 'verbal_test', '10/26/2022');
+insert into Assessment (comp_id, assessment_name, date_created) values (3, 'verbal_test', '6/23/2022');
+insert into Assessment (comp_id, assessment_name, date_created) values (13, 'verbal_test', '12/24/2022');
+insert into Assessment (comp_id, assessment_name, date_created) values (13, 'verbal_test', '1/19/2023');
+insert into Assessment (comp_id, assessment_name, date_created) values (13, 'Self_taken_test', '2/13/2023');
+insert into Assessment (comp_id, assessment_name, date_created) values (14, 'Self_taken_test', '9/13/2022');
+insert into Assessment (comp_id, assessment_name, date_created) values (15, 'Self_taken_test', '10/18/2022');
+insert into Assessment (comp_id, assessment_name, date_created) values (10, 'manager_test', '11/29/2022');
+insert into Assessment (comp_id, assessment_name, date_created) values (11, 'manager_test', '5/21/2022');
+insert into Assessment (comp_id, assessment_name, date_created) values (9, 'manager_test', '8/8/2022');
+insert into Assessment (comp_id, assessment_name, date_created) values (4, 'Self_taken_test', '5/3/2022');
+insert into Assessment (comp_id, assessment_name, date_created) values (9, 'manager_test', '3/28/2023');
+insert into Assessment (comp_id, assessment_name, date_created) values (12, 'verbal_test', '12/13/2022');
+insert into Assessment (comp_id, assessment_name, date_created) values (5, 'manager_test', '5/9/2022');
+insert into Assessment (comp_id, assessment_name, date_created) values (7, 'manager_test', '4/29/2022');
+insert into Assessment (comp_id, assessment_name, date_created) values (12, 'verbal_test', '5/21/2022');
+insert into Assessment (comp_id, assessment_name, date_created) values (4, 'verbal_test', '2/27/2023');
+insert into Assessment (comp_id, assessment_name, date_created) values (2, 'Self_taken_test', '11/23/2022');
+insert into Assessment (comp_id, assessment_name, date_created) values (11, 'verbal_test', '6/12/2022');
+insert into Assessment (comp_id, assessment_name, date_created) values (1, 'Self_taken_test', '5/19/2022');
+insert into Assessment (comp_id, assessment_name, date_created) values (10, 'manager_test', '8/17/2022');
+insert into Assessment (comp_id, assessment_name, date_created) values (15, 'Self_taken_test', '9/16/2022');
+insert into Assessment (comp_id, assessment_name, date_created) values (11, 'Self_taken_test', '8/28/2022');
+insert into Assessment (comp_id, assessment_name, date_created) values (11, 'manager_test', '12/3/2022');
+insert into Assessment (comp_id, assessment_name, date_created) values (6, 'verbal_test', '6/2/2022');
+insert into Assessment (comp_id, assessment_name, date_created) values (6, 'manager_test', '12/30/2022');
+insert into Assessment (comp_id, assessment_name, date_created) values (12, 'manager_test', '9/15/2022');
+insert into Assessment (comp_id, assessment_name, date_created) values (13, 'Self_taken_test', '12/14/2022');
+insert into Assessment (comp_id, assessment_name, date_created) values (6, 'verbal_test', '5/7/2022');
+insert into Assessment (comp_id, assessment_name, date_created) values (6, 'manager_test', '11/6/2022');
+insert into Assessment (comp_id, assessment_name, date_created) values (15, 'manager_test', '12/30/2022');
+insert into Assessment (comp_id, assessment_name, date_created) values (6, 'Self_taken_test', '2/19/2023');
+insert into Assessment (comp_id, assessment_name, date_created) values (13, 'verbal_test', '10/4/2022');
+insert into Assessment (comp_id, assessment_name, date_created) values (9, 'manager_test', '1/30/2023');
+insert into Assessment (comp_id, assessment_name, date_created) values (13, 'verbal_test', '7/10/2022');
+insert into Assessment (comp_id, assessment_name, date_created) values (9, 'Self_taken_test', '8/8/2022');
+insert into Assessment (comp_id, assessment_name, date_created) values (6, 'manager_test', '7/15/2022');
+insert into Assessment (comp_id, assessment_name, date_created) values (14, 'verbal_test', '10/1/2022');
+insert into Assessment (comp_id, assessment_name, date_created) values (10, 'verbal_test', '3/8/2023');
+insert into Assessment (comp_id, assessment_name, date_created) values (10, 'verbal_test', '5/10/2022');
+insert into Assessment (comp_id, assessment_name, date_created) values (12, 'Self_taken_test', '2/2/2023');
+insert into Assessment (comp_id, assessment_name, date_created) values (6, 'manager_test', '1/10/2023');
+insert into Assessment (comp_id, assessment_name, date_created) values (3, 'manager_test', '8/15/2022');
+insert into Assessment (comp_id, assessment_name, date_created) values (7, 'Self_taken_test', '2/25/2023');
+insert into Assessment (comp_id, assessment_name, date_created) values (13, 'verbal_test', '1/17/2023');
+insert into Assessment (comp_id, assessment_name, date_created) values (1, 'manager_test', '1/17/2023');
+insert into Assessment (comp_id, assessment_name, date_created) values (5, 'manager_test', '7/13/2022');
+insert into Assessment (comp_id, assessment_name, date_created) values (11, 'manager_test', '10/18/2022');
+insert into Assessment (comp_id, assessment_name, date_created) values (15, 'manager_test', '10/19/2022');
+insert into Assessment (comp_id, assessment_name, date_created) values (14, 'Self_taken_test', '1/11/2023');
+insert into Assessment (comp_id, assessment_name, date_created) values (12, 'verbal_test', '9/4/2022');
+insert into Assessment (comp_id, assessment_name, date_created) values (15, 'verbal_test', '9/8/2022');
+insert into Assessment (comp_id, assessment_name, date_created) values (3, 'verbal_test', '3/15/2023');
+insert into Assessment (comp_id, assessment_name, date_created) values (8, 'Self_taken_test', '1/11/2023');
+insert into Assessment (comp_id, assessment_name, date_created) values (7, 'Self_taken_test', '12/14/2022');
+insert into Assessment (comp_id, assessment_name, date_created) values (11, 'Self_taken_test', '11/6/2022');
+insert into Assessment (comp_id, assessment_name, date_created) values (5, 'manager_test', '8/7/2022');
+insert into Assessment (comp_id, assessment_name, date_created) values (5, 'Self_taken_test', '12/12/2022');
+insert into Assessment (comp_id, assessment_name, date_created) values (7, 'verbal_test', '5/17/2022');
+insert into Assessment (comp_id, assessment_name, date_created) values (4, 'Self_taken_test', '1/24/2023');
+insert into Assessment (comp_id, assessment_name, date_created) values (12, 'manager_test', '5/1/2022');
+
 
 insert into Assessment_results (result_id, user_id, assess_id, score, date_taken, manager_id) values (1, 7, 14, 3, '6/28/2022', 2);
 insert into Assessment_results (result_id, user_id, assess_id, score, date_taken, manager_id) values (2, 37, 15, 3, '8/20/2022', 4);
