@@ -25,9 +25,9 @@ def search_by_name():
                     print(f"{'-------':<20}{'----------':<20}{'---------':<20}{'------------':<20}{'-----':<20}{'------------':<20}{'---------':<20}{'----------------------'}")
                     print(f"{results[0][0]:<20}{results[0][1]:<20}{results[0][2]:<20}{results[0][3]:<20}{results[0][4]:<20}{results[0][6]:<20}{results[0][7]:<20}{results[0][8]}")
 
-                    if input('\n-----> Press enter to return to manager menu') == "":
+                    if input('\n-----> Press enter to continue') == "":
                          os.system('clear')
-                         return 
+                         return results
           if f_or_l == 'l':
                user_input = input('\nWhat is the users last name? ')
 
@@ -43,6 +43,6 @@ def search_by_name():
                     print(f"{results[0][0]:<20}{results[0][1]:<20}{results[0][2]:<20}{results[0][3]:<20}{results[0][4]:<20}{results[0][6]:<20}{results[0][7]:<20}{results[0][8]}")
 
 
-                    if input('\n-----> Press enter to return to manager menu') == "":
+                    if input('\n-----> Press enter to continue') == "":
                          os.system('clear')
-                         return
+                         return results

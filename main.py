@@ -59,7 +59,7 @@ while True:
             elif view_input == '3':
                 os.system('clear')
                 functions.view_report_all_users_and_comp_given.search_user_and_comp()
-            elif view_input == '4':
+            elif view_input == '4': 
                 os.system('clear')
                 functions.view_comp_of_one_user.search_user_and_comp() 
             elif view_input == '5':
@@ -77,13 +77,13 @@ while True:
                 print(f"{i}: {val}")
             add_input = input("\nwhat would you like to do?(SELECT BY NUMBER): ")
             if add_input == '1':
-                functions.deactivate_course()
+                functions.add_user.add_a_user()
             elif add_input == '2':
-                functions.deactivate_person()
+                functions.add_comp.add_a_competency()
             elif add_input == '3':
-                functions.deactivate_cohort() 
+                functions.add_assess_to_comp.add_asess_to_comp()
             elif add_input == '4':
-                functions.deactivate_cohort() 
+                functions.add_assess_result_for_user_for_assess.add_asess_to_comp()
             else:
               continue
 
@@ -99,7 +99,7 @@ while True:
             elif edit_input == '2':
                 functions.deactivate_person()
             elif edit_input == '3':
-                functions.deactivate_cohort() 
+                functions.deactivate_cohort()
             elif edit_input == '4':
                 functions.deactivate_cohort() 
             else:

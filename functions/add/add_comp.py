@@ -1,16 +1,31 @@
-def add_a_course():
+import os
+import sys
+sys.path.append('.')
+from functions import get_current_time
+from db_querys import add_competency_query
+
+
+def add_a_competency():
     while True:
-        add_course_name = input('What is the name of this course: ')
-        add_course_description = input('What is the course description: ')
+        adding_comp = input("\nAre you sure you would like to add a new competency? (Y or N)").lower()
 
-        new_course = [add_course_name, add_course_description]
+        if adding_comp == 'n':
+            os.system('clear')
+            return
+        
+        competency = input('\nWhat is the name of the new competency you want to add: ')
 
-        add_new_course = input(f'{new_course}\nAre you sure you would like to add this course?(Y or N or [Q]uit): ').lower()
+
+        add_new_comp = input(f'\n---{competency}---\n\nAre you sure you would like to add this competency?(Y or N or [Q]uit): ').lower()
                 
-        if add_new_course == 'y':
-            database.add_course(new_course)
-            return 'Action Complete'
-        elif add_new_course == 'q':
+        if add_new_comp == 'y':
+            time = get_current_time.get_date()
+            add_competency_query.add_comp(competency, time)
+            print(f"{competency} was added to the company database.")
+            input("--> Press enter to return to main menu")
+            os.system('clear')
+            return 
+        elif add_new_comp == 'q':
             break
         else:
             print('Ok try again')
