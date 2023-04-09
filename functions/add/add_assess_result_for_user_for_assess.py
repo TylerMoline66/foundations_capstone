@@ -2,7 +2,7 @@ import os
 import sys
 sys.path.append('.')
 from functions import get_current_time, search_for_users_first_or_last
-from db_querys import view_comp_of_one_user, view_assess_for_user
+from db_querys import view_all_assessments, view_managers, add_assess_results_query
 
 
 def add_asess_to_comp():
@@ -16,73 +16,80 @@ def add_asess_to_comp():
       user = search_for_users_first_or_last.search_by_name()
       user_id = user[0][0]
 
-      assessment_check = view_assess_for_user.by_id(user_id)
+      assessments= view_all_assessments.view_assessments()
 
-      print(f"{'User ID':<20}{'First Name':<20}{'Last Name':<20}{'Assessment ID':<20}{'Assessment Type':<20}")
-      print(f"{'-------':<20}{'----------':<20}{'---------':<20}{'---------':<20}{'-----':<20}{'----------':<20}")
-      for i in assessment_check:
-        print(f"{i[0]:<20}{i[1]:<20}{i[2]:<20}{i[3]:<20}{i[4]:<20}")
-        print(f"{'-------':<20}{'----------':<20}{'---------':<20}{'---------':<20}{'-----':<20}{'----------':<20}")
+      print(f"{'Assessment ID':<20}{'Competency ID':<20}{'Assessment Name':<50}{'Date Created':<20}")
+      print(f"{'-------------':<20}{'-------------':<20}{'---------------':<50}{'-------------':<20}")
+      for i in assessments:
+        print(f"{i[0]:<20}{i[1]:<20}{i[2]:<50}{i[3]:<20}")
+        print(f"{'-------------':<20}{'-------------':<20}{'---------------':<50}{'-------------':<20}")
               
+      print('\nAbove are the assessments you can choose from\n')
+      chosen_assess = input('What is the assessment ID you want to add? (MUST choose by ID to continue): ')
 
-      input()
+      if chosen_assess.isalpha():
+         print("\nincorrect option\n")
+         input("Press enter to try again")
+         continue
+      elif int(chosen_assess) > len(assessments):
+        print("\nincorrect option\n")
+        input("Press enter to try again")
+        continue
 
+      print('\nCompetencies are based on a scale from 0-4\n\n0 - No competency - Needs Training and Direction\n1 - Basic Competency - Needs Ongoing Support\n2 - Intermediate Competency - Needs Occasional Support\n3 - Advanced Competency - Completes Task Independently\n4 - Expert Competency - Can Effectively pass on this knowledge and can initiate optimizations\n')
 
+      score = input('What did the user score on their assessment?')
 
-        
-    # options = ['Data types', 'Variables', 'Functions','Boolean logic', "Conditionals", "Loops", 'Data structures', 'Lists', 'Dictionaries', 'Working with files', 'Exception handling', 'Quality Assurance(QA)', 'Object-oriented programming', 'Recursion', 'Databases']
-          
-    # print("\nCompetency list\n---------------------------\n")
-    # for i, val in enumerate(options, start=1):
-    #   print(f"{i}. {val}")
-    # print('\n---------------------------\n')
+      if score.isalpha():
+         print("\nincorrect option\n")
+         input("Press enter to try again")
+         continue
+      elif int(score) > 4:
+        print("\nincorrect option\n")
+        input("Press enter to try again")
+        continue
 
-    # compy = input('What competency would you like to search by? (SELECT BY NUMBER): ').lower()
-    
-    # if compy.isdigit() == False:
-    #     print("Please select a valid input")
-    #     input("Press enter to start over")
-    #     continue
-    # elif int(compy) > len(options):
-    #     print("Please select a valid input")
-    #     input("Press enter to start over")
-    #     continue
-        
+      date = input('\nWas the assessment give today?(Y or N): ').lower()
 
-        # more_options = ['Managers Test', 'Verbal test', 'Self taken test']
-              
-        # print("\nType of Assessment List\n---------------------------\n")
-        # for i, val in enumerate(more_options, start=1):
-        #   print(f"{i}. {val}")
-        # print('\n---------------------------\n')
+      if date == 'y':
+         date = get_current_time.get_date()
+      else:
+         date = input('\nPlease input the day it was taken (YYYY-MM-DD): ')
 
-        # assess= input('\nWhat is the name of the new assessment you want to add (SELECT BY NUMBER): ')
+      managers = view_managers.view_managers()
 
-        # if assess.isdigit() == False:
-        #     print("Please select a valid input")
-        #     input("Press enter to start over")
-        #     continue
-        # elif int(assess) > len(more_options):
-        #     print("Please select a valid input")
-        #     input("Press enter to start over")
-        #     continue
-        # elif assess == "1":
-        #     assess_val = "manager_test"
-        # elif assess == "2":
-        #     assess_val = "verbal_test"
-        # elif assess == "3":
-        #     assess_val = "self_taken_test"
+      
 
-        # add_new_comp = input(f'\nAre you sure you would like to add ---{assess_val}---?(Y or N or [Q]uit): ').lower()
-                
-        # if add_new_comp == 'y':
-        #     time = get_current_time.get_date()
-        #     add_assess_to_comp_query.add_comp(compy, assess_val, time)
-        #     print(f"\nYour assessment was added to the company database.")
-        #     input("\n--> Press enter to return to main menu")
-        #     os.system('clear')
-        #     return 
-        # elif add_new_comp == 'q':
-        #     break
-        # else:
-        #     print('Ok try again')
+      print(f"{'Managers ID':<20}{'First Name':<20}{'Last Name':<20}")
+      print(f"{'-----------':<20}{'----------':<20}{'---------':<20}")
+      for i in managers:
+        print(f"{i[0]:<20}{i[1]:<20}{i[2]:<20}")
+        print(f"{'-----------':<20}{'----------':<20}{'---------':<20}")
+
+      manager_choice = input('Which manager gave the assessment? (SELECT BY ID): ')
+
+      if manager_choice.isalpha():
+         print("\nincorrect option\n")
+         input("Press enter to try again")
+         continue
+      
+      print(
+      f'''
+USER ID: {user_id}
+ASSESSMENT ID: {chosen_assess}
+SCORE: {score}
+DATE TAKEN: {date}
+MANAGER_ID: {manager_choice}
+      ''')
+
+      push_to_db = input("Would you like to push this assessment result to the database? (Y or N): ").lower()
+
+      if push_to_db == "y":
+         assessment_data = [user_id, chosen_assess, score, date, manager_choice]
+         add_assess_results_query.add_result(assessment_data)
+         print("Your result was added to the database")
+         input("Press enter to return to main menu")
+         os.system('clear')
+         return
+      else:
+         continue
