@@ -45,7 +45,7 @@ while True:
           elif user_input == '1':
 
             os.system('clear')
-            print(print("\nMANAGERS VIEW OR SEARCH OPTIONS\n--------------------------------\n"))
+            print("\nMANAGERS VIEW OR SEARCH OPTIONS\n--------------------------------\n")
             view_list = ['View all users in a list', "Search for user by first or last name", "View a report of all users and their competency levels for a given competency", "View a competency level report for an individual user", "View a list of assessments for a given user", "Quit"]
             for i, val in enumerate(view_list, start=1):
                 print(f"{i}: {val}")
@@ -71,7 +71,7 @@ while True:
           elif user_input == '2':
 
             os.system('clear')
-            print(print("\nMANAGERS ADD OPTIONS\n--------------------------------\n"))
+            print("\nMANAGERS ADD OPTIONS\n--------------------------------\n")
             add_list = ['Add a user', "Add a new competency", "Add a new assessment to a competency", "Add an assessment result for a user for an assessment (this is like recording test results for a user)", "Quit"]
             for i, val in enumerate(add_list, start=1):
                 print(f"{i}: {val}")
@@ -89,25 +89,25 @@ while True:
 
           elif user_input == '3':
             os.system('clear')
-            print(print("\nMANAGERS EDIT OPTIONS\n--------------------------------\n"))
+            print("\nMANAGERS EDIT OPTIONS\n--------------------------------\n")
             edit_list = ['Edit a user\'s information', "edit a competency", "edit an assessment", "edit an assessment result", "Quit"]
             for i, val in enumerate(edit_list, start=1):
                 print(f"{i}: {val}")
             edit_input = input("\nwhat would you like to do?(SELECT BY NUMBER): ")
             if edit_input == '1':
-                functions.deactivate_course()
+                functions.edit_user.edit_user_info()
             elif edit_input == '2':
-                functions.deactivate_person()
+                functions.edit_competency.edit_comp()
             elif edit_input == '3':
                 functions.deactivate_cohort()
             elif edit_input == '4':
-                functions.deactivate_cohort() 
+                functions.deactivate_cohort()
             else:
               continue
 
           elif user_input == '4':
             os.system('clear')
-            print(print("\nMANAGERS DELETE OPTIONS\n--------------------------------\n"))
+            print("\nMANAGERS DELETE OPTIONS\n--------------------------------\n")
             delete_list = ['Delete an assessment result', "Quit"]
             for i, val in enumerate(delete_list, start=1):
                 print(f"{i}: {val}")

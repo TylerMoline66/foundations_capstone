@@ -7,3 +7,8 @@ def user_comp_results(id):
   query = 'SELECT comp_name FROM competencies WHERE comp_id = ?'
   rows = cursor.execute(query, (id,)).fetchall()
   return rows
+
+def all_comp(id): 
+  query = 'SELECT * FROM competencies WHERE comp_id = ?'
+  rows = cursor.execute(query, (id,)).fetchall()
+  return rows
