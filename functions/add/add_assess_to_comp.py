@@ -30,7 +30,7 @@ def add_asess_to_comp():
             input("Press enter to start over")
             continue
 
-        assess= input('\nWhat is the name of the new assessment you want to add (SELECT BY NUMBER): ')
+        assess= input('\nWhat is the name of the new assessment you want to add: ')
 
         add_new_comp = input(f'\nAre you sure you would like to add ---{assess}---?(Y or N or [Q]uit): ').lower()
                 

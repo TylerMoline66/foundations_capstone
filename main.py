@@ -113,7 +113,7 @@ while True:
                 print(f"{i}: {val}")
             delete_input = input("\nwhat would you like to do?(SELECT BY NUMBER): ")
             if delete_input == '1':
-                functions.deactivate_course()
+                functions.delete_assess.delete_result()
 
           elif user_input == '5':
             new_email = functions.user_edit_email.update_email(try_login)
