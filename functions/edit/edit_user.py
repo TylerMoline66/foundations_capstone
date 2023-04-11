@@ -13,6 +13,16 @@ def edit_user_info():
              
         f_or_l = input("\nWould you like to search by first or last name? (F or L or [Q]uit): ").lower()
         
+        if f_or_l == "":
+            print("Incorrect input")
+            input("Press enter to try again")
+            continue
+
+        if len(f_or_l) > 1:
+               print("Incorrect input")
+               input("Press enter to try again")
+               continue
+
         if f_or_l == 'q':
             os.system('clear')
             break

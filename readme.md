@@ -16,6 +16,12 @@ Login in using your username and password like so:
 
 ---> password: xyz123
 
+For testing purposes there is a user set up as
+
+email: user
+
+password: user
+
 You will then be in the program logged in as the user. There will be a menu for the user to access the information about that specific user. you can:
 
 1. Change username
@@ -32,6 +38,12 @@ Signing in as a manager is the same as a user:
 ---> login: email@email.com
 
 ---> password: xyz123
+
+For testing purposes there is a master set up as
+
+email: master
+
+password: master
 
 You will then be in the program logged in as a manager. This menu is larger and has some sub menus. it will look have the options mentioned below:
 
