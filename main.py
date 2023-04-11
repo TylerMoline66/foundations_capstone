@@ -66,6 +66,7 @@ while True:
                 os.system('clear')
                 functions.view_assess_of_user.view_user_and_assess()
             else:
+              os.system('clear')
               continue
 
           elif user_input == '2':
@@ -85,12 +86,13 @@ while True:
             elif add_input == '4':
                 functions.add_assess_result_for_user_for_assess.add_asess_to_comp()
             else:
+              os.system('clear')
               continue
 
           elif user_input == '3':
             os.system('clear')
             print("\nMANAGERS EDIT OPTIONS\n--------------------------------\n")
-            edit_list = ['Edit a user\'s information', "edit a competency", "edit an assessment", "edit an assessment result", "Quit"]
+            edit_list = ['Edit a user\'s information', "Edit a competency", "Edit an assessment", "Edit an assessment result", "Quit"]
             for i, val in enumerate(edit_list, start=1):
                 print(f"{i}: {val}")
             edit_input = input("\nwhat would you like to do?(SELECT BY NUMBER): ")
@@ -99,10 +101,11 @@ while True:
             elif edit_input == '2':
                 functions.edit_competency.edit_comp()
             elif edit_input == '3':
-                functions.deactivate_cohort()
+                functions.edit_assess.edit_assessment()
             elif edit_input == '4':
-                functions.deactivate_cohort()
+                functions.edit_assess_results.edit_assess_result()
             else:
+              os.system('clear')
               continue
 
           elif user_input == '4':

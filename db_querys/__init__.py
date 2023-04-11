@@ -1,4 +1,4 @@
 from db_querys import login_query, delete_assess
-from db_querys.edit import user_edit_email, user_update_password, edit_user_query, edit_comp_query
+from db_querys.edit import user_edit_email, user_update_password, edit_user_query, edit_comp_query, edit_assess_query, edit_assess_result_query
 from db_querys.view_search import user_view_comp_results_query, comp_name, search_by_first_name, search_by_last_name, view_user_and_comp_given, view_comp_of_one_user, view_assess_of_user, view_all_users, view_all_assessments, view_managers, view_all_assess_results
 from db_querys.add import add_user_query, add_competency_query, add_assess_to_comp_query, add_assess_results_query
