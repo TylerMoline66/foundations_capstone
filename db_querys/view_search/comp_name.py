@@ -4,7 +4,7 @@ cursor = connection.cursor()
 
 # ------------------------------SEARCH COMPETENCY NAME QUERY------------------------------
 def user_comp_results(id): 
-  query = 'SELECT comp_name FROM competencies WHERE comp_id = ?'
+  query = 'SELECT assessment_name FROM Assessment WHERE assess_id = ?'
   rows = cursor.execute(query, (id,)).fetchall()
   return rows
 

@@ -46,7 +46,7 @@ while True:
 
             os.system('clear')
             print("\nMANAGERS VIEW OR SEARCH OPTIONS\n--------------------------------\n")
-            view_list = ['View all users in a list', "Search for user by first or last name", "View a report of all users and their competency levels for a given competency", "View a competency level report for an individual user", "View a list of assessments for a given user", "Quit"]
+            view_list = ['View all users in a list', "Search for user by first or last name", "View a report of all users and their competency levels for a given competency (EXPORTABLE)", "View a competency level report for an individual user (EXPORTABLE)", "View a list of assessments for a given user", "Quit"]
             for i, val in enumerate(view_list, start=1):
                 print(f"{i}: {val}")
             view_input = input("\nwhat would you like to do?(SELECT BY NUMBER): ")
@@ -117,6 +117,9 @@ while True:
             delete_input = input("\nwhat would you like to do?(SELECT BY NUMBER): ")
             if delete_input == '1':
                 functions.delete_assess.delete_result()
+            else:
+              os.system('clear')
+              continue
 
           elif user_input == '5':
             new_email = functions.user_edit_email.update_email(try_login)

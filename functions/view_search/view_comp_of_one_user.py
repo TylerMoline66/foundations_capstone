@@ -2,7 +2,7 @@ import sys
 sys.path.append('.')
 from db_querys import view_comp_of_one_user
 import os
-
+from functions import export_reports_csv
 
 def search_user_and_comp():
       while True:
@@ -54,6 +54,15 @@ def search_user_and_comp():
             
            print(f"{result[0][0]:<20}{result[0][1]:<20}{result[0][2]:<20}{result[0][7]:<20}{result[0][13]:<20}{result[0][14]:<20}")
 
+        export = input('Would you like to export these results? (Y or N): ').lower()
 
+        
+        if export == 'y':
+           export_reports_csv.export_to_csv([[result[0][0], result[0][1], result[0][2], result[0][7], result[0][13], result[0][14]]])
+           print('\n-----Your results were saved to reports.csv-----')
            input('\nPress enter to search for another user or quit')
+           continue
+        else:
+           input('\nPress enter to search for another user or quit')
+           continue
               

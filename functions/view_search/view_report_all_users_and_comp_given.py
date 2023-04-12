@@ -2,6 +2,7 @@ import sys
 sys.path.append('.')
 from db_querys import view_user_and_comp_given
 import os
+from functions import export_reports_csv
 
 
 def search_user_and_comp():
@@ -33,10 +34,25 @@ def search_user_and_comp():
         else:
             results = view_user_and_comp_given.user_and_comp(compy)
             print()
-            print(f"{'User ID':<20}{'First Name':<20}{'Last Name':<20}{'Hire Date':<20}{'Score':<20}{'Date Taken':<20}")
-            print(f"{'-------':<20}{'----------':<20}{'---------':<20}{'---------':<20}{'-----':<20}{'----------':<20}")
+            print(f"{'User ID':<20}{'First Name':<20}{'Last Name':<20}{'Score':<20}{'Date Taken':<20}")
+            print(f"{'-------':<20}{'----------':<20}{'---------':<20}{'-----':<20}{'----------':<20}")
+            export_set = []
             for i in results:
-              print(f"{i[0]:<20}{i[1]:<20}{i[2]:<20}{i[7]:<20}{i[13]:<20}{i[14]:<20}")
-              print(f"{'-------':<20}{'----------':<20}{'---------':<20}{'---------':<20}{'-----':<20}{'----------':<20}")
-              
-            input('\nPress enter to check another report')
+              export_list = [i[0], i[1], i[2], i[13], i[14]]
+              export_set.append(export_list)
+              print(f"{i[0]:<20}{i[1]:<20}{i[2]:<20}{i[13]:<20}{i[14]:<20}")
+              print(f"{'-------':<20}{'----------':<20}{'---------':<20}{'-----':<20}{'----------':<20}")
+
+
+        export = input('\nWould you like to export these results? (Y or N): ').lower()
+
+        
+        if export == 'y':
+           
+          export_reports_csv.export_to_csv(export_set)
+          print('\n-----Your results were saved to reports.csv-----')
+          input('\nPress enter to search for another user or quit')
+          continue
+        else:
+           input('\nPress enter to search for another user or quit')
+           continue       

@@ -29,11 +29,13 @@ def login():
                 print("Incorrect email")
                 go_back = input('\nWould you like to try another email? (Y or N): ').lower()
                 if go_back == 'y':
+                    os.system('clear')
                     continue
                 else: 
                     return False
 
             password = password.encode('utf-8')
+            
 
             if bcrypt.checkpw(password, login_results[0][5]):
                 
@@ -41,6 +43,7 @@ def login():
             else: 
                 incorrect = input("Im sorry that password is incorrect, would you like to try again? (Y or N): ").lower()
                 if incorrect == 'y':
+                    os.system('clear')
                     continue
                 elif incorrect == "n":
                     return False
