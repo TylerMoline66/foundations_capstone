@@ -1,7 +1,7 @@
 import os
 import sys
 sys.path.append('.')
-from functions import get_current_time, search_for_users_first_or_last
+from functions import get_current_time, search_for_users_first_or_last, import_assignment_results
 from db_querys import view_all_assessments, view_managers, add_assess_results_query
 
 
@@ -12,6 +12,26 @@ def add_asess_to_comp():
       if adding_assess == 'n':
           os.system('clear')
           return
+      
+      from_csv = input('\nWould you like to import results from your csv? (Y or N):').lower()
+      if from_csv == 'y':
+         info = import_assignment_results.import_from_csv()
+         for i, val in enumerate(info):
+                  print(
+      f'''
+USER ID: {val[0]}
+ASSESSMENT ID: {val[1]}
+SCORE: {val[2]}
+DATE TAKEN: {val[3]}
+MANAGER_ID: {val[4]}
+      ''')
+                  add_assess_results_query.add_result(info[i])
+
+         print("\nThis info was added to the database")
+         input('\nPress enter to continue')
+         os.system('clear')
+         return
+         
 
       user = search_for_users_first_or_last.search_by_name()
       user_id = user[0][0]

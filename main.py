@@ -73,7 +73,7 @@ while True:
 
             os.system('clear')
             print("\nMANAGERS ADD OPTIONS\n--------------------------------\n")
-            add_list = ['Add a user', "Add a new competency", "Add a new assessment to a competency", "Add an assessment result for a user for an assessment (this is like recording test results for a user)", "Quit"]
+            add_list = ['Add a user', "Add a new competency", "Add a new assessment to a competency", "Add an assessment result for a user (recording test results for a user) (IMPORTABLE)", "Quit"]
             for i, val in enumerate(add_list, start=1):
                 print(f"{i}: {val}")
             add_input = input("\nwhat would you like to do?(SELECT BY NUMBER): ")
