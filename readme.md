@@ -6,7 +6,7 @@ Hello! This application is meant to give the managers access to their employees 
 
 1. Run pipenv install
 2. Run pipenv shell
-3. Then run the main.py file to get the program rolling
+3. Then run 'python3 main.py' to get the program rolling
 
 ## User
 
@@ -21,6 +21,8 @@ For testing purposes there is a user set up as
 email: user
 
 password: user
+
+##### NOTE: For testing purposes, all other users are set up with the email they have in the database and the password: password
 
 You will then be in the program logged in as the user. There will be a menu for the user to access the information about that specific user. you can:
 
