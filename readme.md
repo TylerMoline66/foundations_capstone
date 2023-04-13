@@ -22,7 +22,7 @@ email: user
 
 password: user
 
-##### NOTE: For testing purposes, all other users are set up with the email they have in the database and the password: password
+#### NOTE: For testing purposes, all other users are set up with the email they have in the database and the password: password
 
 You will then be in the program logged in as the user. There will be a menu for the user to access the information about that specific user. you can:
 

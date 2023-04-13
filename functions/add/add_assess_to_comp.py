@@ -6,11 +6,16 @@ from db_querys import add_assess_to_comp_query
 
 def add_asess_to_comp():
     while True:
+        os.system('clear')
         adding_assess = input("\nAre you sure you would like to add a new assessment? (Y or N): ").lower()
 
         if adding_assess == 'n':
             os.system('clear')
             return
+        elif adding_assess != 'y':
+            print('Invalid input')
+            input('Press enter to try again')
+            continue
         
         options = ['Data types', 'Variables', 'Functions','Boolean logic', "Conditionals", "Loops", 'Data structures', 'Lists', 'Dictionaries', 'Working with files', 'Exception handling', 'Quality Assurance(QA)', 'Object-oriented programming', 'Recursion', 'Databases']
               

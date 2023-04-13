@@ -12,6 +12,10 @@ def add_a_competency():
         if adding_comp == 'n':
             os.system('clear')
             return
+        elif adding_comp != 'y':
+            print('Invalid input')
+            input('Press enter to try again')
+            continue
         
         competency = input('\nWhat is the name of the new competency you want to add: ')
 

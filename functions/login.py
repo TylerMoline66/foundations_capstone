@@ -14,7 +14,21 @@ def login():
             print('Im sorry I dont understand, do you want to [L]ogin or [Q]uit? ')
 
         elif login == 'l':
-            print('\n\nＷｅｌｃｏｍｅ ｔｏ Ｄｅｖｐｉｐｅｌｉｎｅ＇ｓ ｏｎｌｉｎｅ ｓｅｒｖｉｃｅｓ \n\nenter your credentials below to get started!')
+            print('''\n
+   +--------------+
+   |.------------.|
+   ||            ||
+   ||            ||
+   ||            ||
+   |+------------+|
+   +-..--------..-+
+   .--------------.
+  / /============\ \\
+ / /==============\ \\
+/____________________\\
+\____________________/                                                                               
+''')
+            print("\n\nWelcome to Devpipeline's online services! Enter your credentials below to get started!")
             print("\n\n---------------------------\n")
             email = input('Please enter your email: ')
             print('\n---------------------------\n')

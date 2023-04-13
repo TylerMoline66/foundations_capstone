@@ -34,7 +34,9 @@ while True:
           print()
 
           if user_input.isnumeric() == False:
-            print(f"\n{user_input} is not a valid input, please try again\n")
+            print(f"\n{user_input} is not a valid input\n")
+            input('Press enter to try again')
+            os.system('clear')
             continue
           print()
 
