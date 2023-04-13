@@ -13,6 +13,8 @@ def view_comp_results(user):
         input('\nPress enter to return to previous menu')
         os.system('clear')
         return
+    
+    assess_results = 0
 
     
     print('\nCompetencies are based on a scale from 0-4\n\n0 - No competency - Needs Training and Direction\n1 - Basic Competency - Needs Ongoing Support\n2 - Intermediate Competency - Needs Occasional Support\n3 - Advanced Competency - Completes Task Independently\n4 - Expert Competency - Can Effectively pass on this knowledge and can initiate optimizations\n')
@@ -20,9 +22,13 @@ def view_comp_results(user):
     print(f"{'-------------':<20}{'---------------':<50}{'------------------':<20}")
 
     for i, val in enumerate(rows):
+        assess_results += int(val[1])
         compy_name = comp_lvl_for_user(rows[i][0])
         print(f"{val[0]:<20}{compy_name[0][0]:<50}{val[1]:<20}")
         print(f"{'-------------':<20}{'---------------':<50}{'------------------':<20}")
+
+    average = (assess_results / len(rows))
+    print(f"\n---------------------> YOUR AVERAGE RESULT SCORE IS {average} <---------------------")
 
     enter_to_menu.enter_to_menu()
 

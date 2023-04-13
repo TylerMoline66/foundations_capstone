@@ -36,10 +36,17 @@ def view_user_and_assess():
            input('Press enter to try again')
            continue
         else:
-           print(f"{'User ID':<20}{'First Name':<20}{'Last Name':<20}{'Assessment ID':<20}{'Assessment Type':<20}")
-           print(f"{'-------':<20}{'----------':<20}{'---------':<20}{'-------------':<20}{'---------------':<20}")
-            
-           print(f"{result[0][0]:<20}{result[0][1]:<20}{result[0][2]:<20}{result[0][3]:<20}{result[0][4]:<20}")
+           assess_results = 0
+           print(f"{'User ID':<20}{'First Name':<20}{'Last Name':<20}{'Score':<20}{'Assessment ID':<20}{'Assessment Type':<20}")
+           print(f"{'-------':<20}{'----------':<20}{'---------':<20}{'-----':<20}{'-------------':<20}{'---------------':<20}")
+
+           for i in result:
+            assess_results += int(i[5])
+            print(f"{i[0]:<20}{i[1]:<20}{i[2]:<20}{i[5]:<20}{i[3]:<20}{i[4]:<20}")
+            print(f"{'-------':<20}{'----------':<20}{'---------':<20}{'-----':<20}{'-------------':<20}{'---------------':<20}")
+
+           average = (assess_results / len(result))
+           print(f"\n---------------------> YOUR AVERAGE RESULT SCORE IS {average} <---------------------")
          
 
            input('\nPress enter to search for another user or quit')

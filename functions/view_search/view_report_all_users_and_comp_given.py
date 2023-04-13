@@ -32,16 +32,22 @@ def search_user_and_comp():
             input('Press enter to start over')
 
         else:
+            assess_results = 0
+            
             results = view_user_and_comp_given.user_and_comp(compy)
             print()
             print(f"{'User ID':<20}{'First Name':<20}{'Last Name':<20}{'Score':<20}{'Date Taken':<20}")
             print(f"{'-------':<20}{'----------':<20}{'---------':<20}{'-----':<20}{'----------':<20}")
             export_set = []
             for i in results:
+              assess_results += int(i[13])
               export_list = [i[0], i[1], i[2], i[13], i[14]]
               export_set.append(export_list)
               print(f"{i[0]:<20}{i[1]:<20}{i[2]:<20}{i[13]:<20}{i[14]:<20}")
               print(f"{'-------':<20}{'----------':<20}{'---------':<20}{'-----':<20}{'----------':<20}")
+
+            average = (assess_results / len(results))
+            print(f"\n---------------------> THE AVERAGE RESULT SCORE IS {average} <---------------------")
 
 
         export = input('\nWould you like to export these results? (Y or N): ').lower()

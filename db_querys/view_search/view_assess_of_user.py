@@ -8,7 +8,7 @@ cursor = connection.cursor()
 # ------------------------------SEARCH ALL CUSTOMERS QUERY------------------------------
 def by_id(id):
   query = '''
-SELECT Users.user_id, Users.first_name, Users.last_name, Assessment.assess_id, Assessment.assessment_name
+SELECT Users.user_id, Users.first_name, Users.last_name, Assessment.assess_id, Assessment.assessment_name, ar.score
 FROM Users
 JOIN Assessment_results ar
 ON Users.user_id = ar.user_id
@@ -21,7 +21,7 @@ WHERE Users.user_id = ?;
 
 def by_first(first):
   query = '''
-SELECT Users.user_id, Users.first_name, Users.last_name, Assessment.assess_id, Assessment.assessment_name
+SELECT Users.user_id, Users.first_name, Users.last_name, Assessment.assess_id, Assessment.assessment_name, ar.score
 FROM Users
 JOIN Assessment_results ar
 ON Users.user_id = ar.user_id
@@ -35,7 +35,7 @@ WHERE Users.first_name LIKE ?;
 
 def by_last(last):
   query = '''
-SELECT Users.user_id, Users.first_name, Users.last_name, Assessment.assess_id, Assessment.assessment_name
+SELECT Users.user_id, Users.first_name, Users.last_name, Assessment.assess_id, Assessment.assessment_name, ar.score
 FROM Users
 JOIN Assessment_results ar
 ON Users.user_id = ar.user_id
