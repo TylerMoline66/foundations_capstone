@@ -28,7 +28,6 @@ def delete_result():
             input("Press enter to try again")
             continue
         # elif int(user_input) > len(assess_results):
-
         #     print("\nInvalid input")
         #     input("Press enter to try again")
         #     continue

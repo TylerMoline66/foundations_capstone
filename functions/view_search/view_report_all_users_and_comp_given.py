@@ -26,10 +26,12 @@ def search_user_and_comp():
         elif compy == '':
            print("Please select a valid input")
            input('Press enter to start over')
+           continue
 
         elif int(compy) > len(options):
             print("Please select a valid input")
             input('Press enter to start over')
+            continue
 
         else:
             assess_results = 0
@@ -49,10 +51,8 @@ def search_user_and_comp():
             average = (assess_results / len(results))
             print(f"\n---------------------> THE AVERAGE RESULT SCORE IS {average} <---------------------")
 
-
         export = input('\nWould you like to export these results? (Y or N): ').lower()
 
-        
         if export == 'y':
            
           export_reports_csv.export_to_csv(export_set)
