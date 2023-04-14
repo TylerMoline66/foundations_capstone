@@ -10,6 +10,10 @@ def edit_user_info():
         quitting = input("\nAre you sure you would like to update a users information? (Y or N): ").lower()
         if quitting == "n":
              return
+        if quitting != 'y':
+             print('Incorrect input')
+             input('Press enter to try again')
+             continue
              
         f_or_l = input("\nWould you like to search by first or last name? (F or L or [Q]uit): ").lower()
         

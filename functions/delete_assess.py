@@ -16,27 +16,29 @@ def delete_result():
 
         user_input = input("\nWhat assessment would you like to remove(SELECT BY RESULT ID OR [Q]uit): ").lower()
 
+        if user_input == "":
+            print("\nInvalid input")
+            input("Press enter to try again")
+            continue
         if user_input == 'q':
+            os.system('clear')
             return
         if user_input.isalpha():
             print("\nInvalid input")
             input("Press enter to try again")
             continue
-        elif int(user_input) > len(assess_results):
-            print("\nInvalid input")
-            input("Press enter to try again")
-            continue
+        # elif int(user_input) > len(assess_results):
+
+        #     print("\nInvalid input")
+        #     input("Press enter to try again")
+        #     continue
         elif user_input == '':
             print("\nInvalid input")
             input("Press enter to try again")
             continue
         
-        
-        
         value_to_update = input('\nAre you sure you would like to remove this Assessment? THIS CANNOT BE UNDONE (Y or N): ')
         
-
-
         if value_to_update == 'y':
             delete_assess.remove_assess(user_input)
             print(f'\nThe assessment with id {user_input} was removed from the database')
