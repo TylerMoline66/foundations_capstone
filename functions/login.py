@@ -48,6 +48,15 @@ def login():
                     continue
                 else: 
                     return False
+                
+            if login_results[0][9] != 1:
+                print("Im sorry, you currently dont have access to this service. If you need access, please reach out to your manager.")
+                go_back = input('\nWould you like to try another login? (Y or N): ').lower()
+                if go_back == 'y':
+                    os.system('clear')
+                    continue
+                else: 
+                    return False
 
             password = password.encode('utf-8')
             

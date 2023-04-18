@@ -40,9 +40,9 @@ def edit_user_info():
                     input('Press enter to try again')
                     continue
             else:
-                    print(f"{'User ID':<20}{'First Name':<20}{'Last Name':<20}{'Phone Number':<20}{'Email':<20}{'Date Created':<20}{'Hire Date':<20}{'User Type(0 = manager)'}")
-                    print(f"{'-------':<20}{'----------':<20}{'---------':<20}{'------------':<20}{'-----':<20}{'------------':<20}{'---------':<20}{'----------------------'}")
-                    print(f"{results[0][0]:<20}{results[0][1]:<20}{results[0][2]:<20}{results[0][3]:<20}{results[0][4]:<20}{results[0][6]:<20}{results[0][7]:<20}{results[0][8]}")
+                    print(f"\n{'User ID':<20}{'First Name':<20}{'Last Name':<20}{'Phone Number':<20}{'Email':<20}{'Date Created':<20}{'Hire Date':<20}{'User Type(0 = manager)':<25}{'Active(1 is active)':<20}")
+                    print(f"{'-------':<20}{'----------':<20}{'---------':<20}{'------------':<20}{'-----':<20}{'------------':<20}{'---------':<20}{'----------------------':<25}{'------------------':<20}")
+                    print(f"{results[0][0]:<20}{results[0][1]:<20}{results[0][2]:<20}{results[0][3]:<20}{results[0][4]:<20}{results[0][6]:<20}{results[0][7]:<20}{results[0][8]:<25}{results[0][9]}")
 
                     
 
@@ -56,13 +56,13 @@ def edit_user_info():
                     input('Press enter to try again')
                     continue
             else:
-                    print(f"\n{'User ID':<20}{'First Name':<20}{'Last Name':<20}{'Phone Number':<20}{'Email':<20}{'Date Created':<20}{'Hire Date':<20}{'User Type(0 = manager)'}")
-                    print(f"{'-------':<20}{'----------':<20}{'---------':<20}{'------------':<20}{'-----':<20}{'------------':<20}{'---------':<20}{'----------------------'}")
-                    print(f"{results[0][0]:<20}{results[0][1]:<20}{results[0][2]:<20}{results[0][3]:<20}{results[0][4]:<20}{results[0][6]:<20}{results[0][7]:<20}{results[0][8]}")
+                    print(f"\n{'User ID':<20}{'First Name':<20}{'Last Name':<20}{'Phone Number':<20}{'Email':<20}{'Date Created':<20}{'Hire Date':<20}{'User Type(0 = manager)':<25}{'Active(1 is active)':<20}")
+                    print(f"{'-------':<20}{'----------':<20}{'---------':<20}{'------------':<20}{'-----':<20}{'------------':<20}{'---------':<20}{'----------------------':<25}{'------------------':<20}")
+                    print(f"{results[0][0]:<20}{results[0][1]:<20}{results[0][2]:<20}{results[0][3]:<20}{results[0][4]:<20}{results[0][6]:<20}{results[0][7]:<20}{results[0][8]:<25}{results[0][9]}")
                     
 
         user = results
-        user = [user[0][0], user[0][1], user[0][2], user[0][3], user[0][4], user[0][5], user[0][6], user[0][7], user[0][8]]
+        user = [user[0][0], user[0][1], user[0][2], user[0][3], user[0][4], user[0][5], user[0][6], user[0][7], user[0][8], user[0][9]]
 
 
         print("\nUser info\n---------------------------\n")
@@ -89,6 +89,13 @@ def edit_user_info():
             new_info = input('\nWhat would you like the new password to be? ')
             safe_pass = hash_password.hash_pass(new_info)
             user[int(info_update) - 1] = safe_pass
+            edit_user_query.edit_user(user)
+            print(f"\n{user[1]} {user[2]} was update in the database")
+            input('\nPress enter to return to the main menu')
+            return 
+        elif info_update == '10':
+            new_info = input('\nIf the user is active, choose 1, if they are not active choose 0: ')
+            user[int(info_update) - 1] = new_info
             edit_user_query.edit_user(user)
             print(f"\n{user[1]} {user[2]} was update in the database")
             input('\nPress enter to return to the main menu')
