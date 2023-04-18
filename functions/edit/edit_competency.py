@@ -19,6 +19,7 @@ def edit_comp():
 
 
         if user_input == 'q':
+            os.system('clear')
             return
         if user_input.isalpha():
             print("\nInvalid input")
@@ -61,5 +62,6 @@ def edit_comp():
             edit_comp_query.edit_comp(change_comp)
             print('Your changes were added to the database')
             input('Press enter to continue')
+            os.system('clear')
             return
             

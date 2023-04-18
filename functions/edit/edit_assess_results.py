@@ -24,6 +24,7 @@ def edit_assess_result():
         
 
         if user_input == 'q':
+            os.system('clear')
             return
         elif user_input == '':
             print("\nInvalid input")

@@ -62,7 +62,7 @@ def edit_user_info():
                     
 
         user = results
-        user = [user[0][0], user[0][1], user[0][2], user[0][3], user[0][4], user[0][5], user[0][6], user[0][7], user[0][8], user[0][9]]
+        user = [user[0][0], user[0][1], user[0][2], user[0][3], user[0][4], '--USERS CURRENT PASSWORD--', user[0][6], user[0][7], user[0][8], user[0][9]]
 
 
         print("\nUser info\n---------------------------\n")
@@ -92,6 +92,7 @@ def edit_user_info():
             edit_user_query.edit_user(user)
             print(f"\n{user[1]} {user[2]} was update in the database")
             input('\nPress enter to return to the main menu')
+            os.system('clear')
             return 
         elif info_update == '10':
             new_info = input('\nIf the user is active, choose 1, if they are not active choose 0: ')
@@ -99,6 +100,7 @@ def edit_user_info():
             edit_user_query.edit_user(user)
             print(f"\n{user[1]} {user[2]} was update in the database")
             input('\nPress enter to return to the main menu')
+            os.system('clear')
             return 
         else:
             new_info = input('\nWhat would you like to update the data to be? ')
@@ -106,6 +108,7 @@ def edit_user_info():
             edit_user_query.edit_user(user)
             print(f"\n{user[1]} {user[2]} was update in the database")
             input('\nPress enter to return to the main menu')
+            os.system('clear')
             return
     
     
