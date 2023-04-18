@@ -62,7 +62,7 @@ def edit_user_info():
                     
 
         user = results
-        user = [user[0][0], user[0][1], user[0][2], user[0][3], user[0][4], '--USERS CURRENT PASSWORD--', user[0][6], user[0][7], user[0][8], user[0][9]]
+        user = [user[0][0], user[0][1], user[0][2], user[0][3], user[0][4], user[0][5], user[0][6], user[0][7], user[0][8], user[0][9]]
 
 
         print("\nUser info\n---------------------------\n")
