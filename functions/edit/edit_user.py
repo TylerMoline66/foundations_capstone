@@ -9,6 +9,7 @@ def edit_user_info():
     while True:
         quitting = input("\nAre you sure you would like to update a users information? (Y or N): ").lower()
         if quitting == "n":
+             os.system('clear')
              return
         if quitting != 'y':
              print('Incorrect input')
